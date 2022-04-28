@@ -50,19 +50,20 @@ plt.rcParams.update(params)
 usecols = ['sentiment','text_dat']
 # col_names_twit = [""]
 train_data = pd.read_csv(
-    filepath_or_buffer='../input/word2vec-nlp-tutorial/labeledTrainData.tsv.zip',
+    filepath_or_buffer='/data/labeledTrainData.tsv',
     usecols=usecols, sep='\t')
 train_data.columns = ["sentiment","text_dat"]
 unlabeled_data = pd.read_csv(
-    filepath_or_buffer="../input/word2vec-nlp-tutorial/unlabeledTrainData.tsv.zip", 
+    filepath_or_buffer="/data/unlabeledTrainData.tsv", 
     error_bad_lines=False,
     sep='\t')
 unlabeled_data.columns = ["sentiment","text_dat"]
 
-twit_test = pd.read_csv("../input/sentiment-140/test_twit.csv",header=None)
+twit_test = pd.read_csv("/data/test_twit.csv",header=None)
 twit_test.columns = ['sentiment','id','date','query','user','text_dat']
 twit_test = twit_test.drop(columns=['id', 'date','query','user'])
-twit_train = pd.read_csv("../input/sentiment-140/train_twit.csv", encoding='latin-1',header=None)
+
+twit_train = pd.read_csv("/data/train_twit.csv", encoding='latin-1',header=None)
 twit_train.columns = ['sentiment','id','date','query','user','text_dat']
 twit_train = twit_train.drop(columns=['id', 'date','query','user'])
 
